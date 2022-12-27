@@ -20,6 +20,5 @@ public class Main{
         int k = t.nextInt();
         double[][] centri = new double[k][n];
         Metodi.inizializzaCluster(centri, dati);
-
     }
 }

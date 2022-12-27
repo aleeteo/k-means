@@ -2,14 +2,20 @@ import java.lang.Math;
 import java.util.Random;
 
 public class Metodi{
+    //questo metodo si occupa di inizializzare la matrice bidimensionale dati riempiendola con
+    //valori double compresi tra 0 e 1
     public static void inizializzaDati(double dati[][]) {
         for (int i = 0; i < dati.length; i++){
             for (int k = 0; k < (dati[i].length); k++){
+                //il metodo Math.random genera un numero decimale pseudocasuale compreso tra 0 e 1
                 dati[i][k] = Math.random();
             }
         }
     }
 
+    //questo metodo si occupa di inzializzare la matrice bidimensionale centri
+    //questa matrice contiene k righe, dove k è il numero di cluster che si decide di creare
+    //inizialmente alle reghe di centri vengono assegnate righe della matrice dati senza reimmissione
     public static void inizializzaCluster(double centri[][], double dati[][]) {
         int k = centri.length;
         if (k > dati.length) {
@@ -36,6 +42,9 @@ public class Metodi{
         }
     }
 
+    //questo metodo si occupa di aggiornare i valori del centro di ogni cluster
+    //il valore del centro corrisponde alla media dei valori assunti da ogni oggetto appartenete
+    //al cluster
     public static void aggiornaCentri(double centri[][], double dati[][], int cluster[]) {
         int[] indC = new int[dati.length];
         int indT = 0;
@@ -59,6 +68,9 @@ public class Metodi{
         }
     }
 
+    //questo metodo si occupa di calcolare la distanza tra due elementi
+    //(solitamente un centro e un oggetto)
+    //e sfrutta un formula che richiede tutti i valore contenuti nella riga
     public static double calcolaDistanza(double[] dati, double[] centri) {
         double somma = 0, distanza = 0;
         for (int i = 0; i < dati.length; i++) {
@@ -68,6 +80,9 @@ public class Metodi{
         return distanza;
     }
 
+    //questo metodo si occupa di calcolare il cluster di appartenenza di ogni oggetto
+    //questo è possibile calcolando la distanza tramite il metodo precedente
+    //e salvando il centro con la distanza minore
     public static void calcolaCluster(double[][] dati, double[][] centri, int[] cluster) {
         double min = 0, distanza = 0;
         int nuovoCentro = 0;
@@ -84,6 +99,8 @@ public class Metodi{
         }
     }
 
+    //questo metodo calcola il valore della funzione obbiettivo tramite la formula
+    //fornita nel whitepaper
     public static double calcolaObbiettivo(double[][] dati, double[][] centri, int[] cluster) {
         double sommaParziale = 0, somma = 0;
         for (int i = 0; i < centri.length; i++) {
@@ -98,6 +115,7 @@ public class Metodi{
         return somma;
     }
 
+    //questo metodo si occupa di stampare double a piacere formattandola in modo leggibile
     public static void stampaMatrice(double[][] matrice) {
         for (int i = 0; i < matrice.length; i++) {
             for (int k = 0; k < matrice[i].length; k++) {
