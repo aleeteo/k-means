@@ -59,5 +59,42 @@ public class Metodi{
         }
     }
 
+    public static double calcolaDistanza(double[] dati, double[] centri) {
+        double somma = 0, distanza = 0;
+        for (int i = 0; i < dati.length; i++) {
+            somma += Math.pow((centri[i] - dati[i]), 2);
+        }
+        distanza = Math.sqrt(somma);
+        return distanza;
+    }
 
+    public static void calcolaCluster(double[][] dati, double[][] centri, int[] cluster) {
+        double min = 0, distanza = 0;
+        int nuovoCentro = 0;
+        for (int i = 0; i < dati.length;i++) {
+            min = calcolaDistanza(dati[i], centri[0]);
+            for (int k = 0; k < centri.length; k++) {
+                distanza = calcolaDistanza(dati[i], centri[k]);
+                if (distanza < min) {
+                    min = distanza;
+                    nuovoCentro = k;
+                }
+            }
+            cluster[i] = nuovoCentro;
+        }
+    }
+
+    public static double calcolaObbiettivo(double[][] dati, double[][] centri, int[] cluster) {
+        double sommaParziale = 0, somma = 0;
+        for (int i = 0; i < centri.length; i++) {
+            sommaParziale = 0;
+            for (int k = 0; k < dati.length; k++) {
+                if (cluster[k] == i) {
+                    sommaParziale += calcolaDistanza(dati[k], centri[i]);
+                }
+            }
+            somma += sommaParziale;
+        }
+        return somma;
+    }
 }
