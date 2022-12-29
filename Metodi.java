@@ -124,4 +124,20 @@ public class Metodi{
             System.out.println("");
         }
     }
+
+    //questo metodo stampa i cluster formattandoli in modo leggibile
+    public static void stampaCluster(double[][] dati, double[][] centri, int[] cluster) {
+        for (int i = 0; i < centri.length; i++) {
+            System.out.println("cluster " + (i+1));
+            for (int k = 0; k < dati.length; k++) {
+                if (cluster[k] == i) {
+                    for (int h = 0; h < dati[0].length; h++) {
+                        System.out.print(dati[k][h]);
+                    }
+                    System.out.println("");
+                }
+            }
+            System.out.println("------------------------------------------");
+        }
+    }
 }
