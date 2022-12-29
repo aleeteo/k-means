@@ -119,7 +119,7 @@ public class Metodi{
     public static void stampaMatrice(double[][] matrice) {
         for (int i = 0; i < matrice.length; i++) {
             for (int k = 0; k < matrice[i].length; k++) {
-                System.out.print(matrice[i][k]);
+                System.out.print(matrice[i][k]+" ");
             }
             System.out.println("");
         }
