@@ -47,23 +47,31 @@ public class Metodi{
     //al cluster
     public static void aggiornaCentri(double centri[][], double dati[][], int cluster[]) {
         int[] indC = new int[dati.length];
-        int indT = 0;
+        int counter = 0;
+        double somma = 0;
         for (int i = 0; i < centri.length; i++) {
-            indT = 0;
+            counter = 0;
             for (int k = 0; k < dati.length; k++){
                 if (cluster[k]== i) {
-                    indC[indT] = k + 1;
-                    indT++;
+                    indC[counter] = k + 1;
+                    counter++;
                 }
             }
-            int somma = 0;
+            somma = 0;
             for (int k = 0; k < centri[0].length; k++) {
                 int j = 0;
-                while (indC[j] != 0) {
-                    somma += dati[indC[j]][k];
+                while (j < indC.length && indC[j] != 0) {
+                    somma += dati[indC[j] - 1][k];
                     j++;
                 }
+                // while (indC[j] != 0) {
+                //     somma += dati[(indC[j] - 1)][k];
+                //     j++;
+                // }
                 centri[i][k] = somma/j;
+            }
+            for (int k = 0; k < indC.length; k++) {
+                indC[k] = 0;
             }
         }
     }
