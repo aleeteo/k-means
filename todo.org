@@ -1,0 +1,22 @@
+#+title: Todo
+#+author: Alessandro
+
+* PROJ implementazione dell'algortimo k-means [0%]
+** TODO implementazione [/]
+*** TODO metodi [6/6]
+**** DONE inizializzaDati
+**** DONE inizializzaCluster
+**** DONE aggiornaCentri
+**** DONE calcolaCluster
+***** DONE calcolaDistanza
+**** DONE calcolaObbiettivo
+**** DONE aggiuntive
+***** DONE stampaMatrice
+***** DONE stampaCluster
+*** TODO implementazione nel Main
+*** TODO ciclo while
+*** TODO stampa
+*** TODO controllo logico
+** TODO bugs [0/2]
+*** TODO spesso tanto appare una riga intera "NaN" all'interno della matrice centri
+*** TODO la funzione obbbiettivo non varia

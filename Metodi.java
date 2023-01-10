@@ -64,10 +64,6 @@ public class Metodi{
                     somma += dati[indC[j] - 1][k];
                     j++;
                 }
-                // while (indC[j] != 0) {
-                //     somma += dati[(indC[j] - 1)][k];
-                //     j++;
-                // }
                 centri[i][k] = somma/j;
             }
             for (int k = 0; k < indC.length; k++) {

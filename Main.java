@@ -34,6 +34,7 @@ public class Main{
 
         // Driver.testInizializzacluster();
 
+        System.out.println("------------------------------------------");
         System.out.println("matrice dati");
         Metodi.stampaMatrice(dati);
         System.out.println("------------------------------------------");
@@ -42,18 +43,19 @@ public class Main{
         Metodi.stampaMatrice(centri);
         System.out.println("------------------------------------------");
 
-        Metodi.calcolaCluster(dati, centri, cluster);
-        Metodi.aggiornaCentri(centri, dati, cluster);
-        System.out.println("matrice centri aggiornata");
-        Metodi.stampaMatrice(centri);
-        System.out.println("------------------------------------------");
+        for (int i = 0; i < 10; i++){
+                Metodi.calcolaCluster(dati, centri, cluster);
+                Metodi.aggiornaCentri(centri, dati, cluster);
+                System.out.println("matrice centri aggiornata");
+                Metodi.stampaMatrice(centri);
+                System.out.println("------------------------------------------");
 
-        obbiettivo = Metodi.calcolaObbiettivo(dati, centri, cluster);
-        System.out.println("obbiettivo");
-        System.out.println(obbiettivo);
-        System.out.println("------------------------------------------");
+                obbiettivo = Metodi.calcolaObbiettivo(dati, centri, cluster);
+                System.out.println("obbiettivo");
+                System.out.println(obbiettivo);
+                System.out.println("------------------------------------------");
 
-        Metodi.stampaCluster(dati, centri, cluster);
-
+                Metodi.stampaCluster(dati, centri, cluster);
+        }
     }
 }
