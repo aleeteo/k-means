@@ -49,22 +49,25 @@ public class Metodi{
         int[] indC = new int[dati.length];
         int counter = 0;
         double somma = 0;
+        int j = 0;
         for (int i = 0; i < centri.length; i++) {
             counter = 0;
             for (int k = 0; k < dati.length; k++){
-                if (cluster[k]== i) {
+                if (cluster[k] == i) {
                     indC[counter] = k + 1;
                     counter++;
                 }
             }
             somma = 0;
-            for (int k = 0; k < centri[0].length; k++) {
-                int j = 0;
+            for (int k = 0; k < dati[0].length; k++) {
+                j = 0;
                 while (j < indC.length && indC[j] != 0) {
                     somma += dati[indC[j] - 1][k];
                     j++;
                 }
-                centri[i][k] = somma/j;
+                if (j > 0) {
+                    centri[i][k] = somma/j;
+                }
             }
             for (int k = 0; k < indC.length; k++) {
                 indC[k] = 0;
